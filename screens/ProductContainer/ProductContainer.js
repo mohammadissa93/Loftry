@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity ,FlatList} from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import useGetProduct from "../../hooks/useGetProduct";
 import Spinner from "../../shared/components/Spinner ";
 import { COLORS } from "../../shared/constants/Index";
@@ -71,10 +77,19 @@ export default function ProductContainer() {
         handleSortByChangeMethod={handleSortByChange}
         modalVisible={modalVisible}
       />
-      <FlatList data={sortedComments} renderItem={({item}) => (
-        <CommentContainer key={item.Id} comment={item} />
-      )} />
-      <ProductFooter currency={data.currency} price={data.price} discount ={data.discount}/>
+      <View style={{flex:1}}>
+        <FlatList
+          data={sortedComments}
+          renderItem={({ item }) => (
+            <CommentContainer key={item.Id} comment={item} />
+          )}
+        />
+      </View>
+      <ProductFooter
+        currency={data.currency}
+        price={data.price}
+        discount={data.discount}
+      />
     </View>
   );
 }
@@ -88,7 +103,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginBottom:8,
+    marginBottom: 8,
   },
   shortName: {
     marginBottom: 10,

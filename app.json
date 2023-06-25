@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "loftryApp",
-    "slug": "loftryApp",
+    "slug": "loftryapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.issazgaier.loftryapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1327e2d5-7965-436c-acec-80546d6f2712"
+      }
     }
   }
 }
