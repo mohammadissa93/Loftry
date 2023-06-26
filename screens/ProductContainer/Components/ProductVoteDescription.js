@@ -1,10 +1,17 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet,Dimensions, PixelRatio} from "react-native";
 import ProgressBar from "../../../shared/components/ProgressBar";
 
 export default function ProductVoteDescription(props) {
+  const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const SCALE = SCREEN_WIDTH / 565;
+
+function normalizeFont(size) {
+  const newSize = size * SCALE;
+  return Math.round(PixelRatio.roundToNearestPixel(newSize));
+}
   return (
-    <View style={{ padding: 11 }}>
+    <View style={styles.voteDescContainer}>
       {props.votes.map((vote) => (
         <View key={vote.Id} style={styles.container}>
           <Text style={{ fontSize: 18 }}>{vote.star}</Text>
@@ -16,7 +23,7 @@ export default function ProductVoteDescription(props) {
             <ProgressBar progress={vote.total / 10} />
           </View>
           <View style={styles.votesTotal}>
-            <Text style={{ fontSize: 18 }}>{vote.total}</Text>
+            <Text style={{ fontSize: normalizeFont(18) }}>{vote.total}</Text>
           </View>
         </View>
       ))}
@@ -24,6 +31,10 @@ export default function ProductVoteDescription(props) {
   );
 }
 const styles = StyleSheet.create({
+  voteDescContainer:{
+    // paddingVertical: 12,
+    paddingHorizontal: 11,
+  },
   container: {
     flexDirection: "row",
     alignItems: "center",

@@ -15,7 +15,7 @@ export default function ProductButtonGroup(props) {
       <View style={styles.buttonGroup}>
         <TouchableOpacity onPress={() => props.modalVisibleMethod(true)}>
           <Text style={styles.sortByText}>
-            Sort by {props.sortByObject.value} {props.modalVisible ? "▲" : "▼"}
+            Sort By {props.sortByObject.value} {props.modalVisible ? "▲" : "▼"}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>

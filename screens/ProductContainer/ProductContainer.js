@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   description: {
-    height: 300,
+    // height: 300,
+    paddingBottom:15,
     borderColor: COLORS.gray,
     borderWidth: 1,
     borderRadius: 10,
